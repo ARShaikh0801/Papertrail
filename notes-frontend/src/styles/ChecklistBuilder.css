@@ -1,0 +1,35 @@
+.items-preview {
+  max-height: 230px;
+  overflow-y: auto;
+  scrollbar-color: var(--amber) transparent;
+}
+
+.items-preview span {
+  height: max-content;
+}
+
+.items-preview li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: min-content;
+  cursor: pointer;
+}
+
+.items-preview button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  margin: 5px;
+}
+
+.item-seperator {
+  width: 350px;
+  height: 1px;
+  margin: 0.5rem auto;
+  border-top: 1px solid rgba(200, 136, 58, 0.30);
+  border-bottom: 1px solid rgba(200, 136, 58, 0.30);
+}

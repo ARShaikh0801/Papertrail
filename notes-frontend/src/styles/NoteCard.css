@@ -1,0 +1,216 @@
+/* ─────────────────────────────
+   NOTE CARDS
+───────────────────────────── */
+.notes-cards {
+  background: var(--warm-white);
+  border-radius: 5px;
+  padding: 1.4rem 1.5rem 3.8rem 1.5rem;
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s;
+  animation: cardIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  cursor: pointer;
+}
+
+.notes-cards ul,
+.notes-cards p {
+  height: 52px;
+  overflow: hidden;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.notes-cards li {
+  color: #6b6355;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notes-cards::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: 3px;
+}
+
+.notes-cards:hover {
+  transform: translateY(-3px) rotate(0.3deg);
+  box-shadow:
+    0 2px 4px var(--shadow-warm),
+    0 12px 32px rgba(100, 70, 30, 0.13),
+    0 0 0 1px rgba(200, 136, 58, 0.15);
+}
+
+.not-pinned-note {
+  box-shadow:
+    0 1px 2px var(--shadow-warm),
+    0 4px 16px rgba(100, 70, 30, 0.08),
+    0 0 0 1px rgba(200, 136, 58, 0.09);
+}
+
+.pinned-note {
+  position: relative;
+  background: var(--pinned-bg);
+  box-shadow:
+    0 1px 2px var(--shadow-warm),
+    0 6px 24px rgba(160, 82, 45, 0.14),
+    0 0 0 1.5px rgba(200, 136, 58, 0.28);
+}
+
+.pinned-note h3 {
+  margin-left: 1rem;
+}
+
+/* Amber top-bar on pinned */
+.pinned-note::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--amber), var(--amber-light));
+  border-radius: 3px 3px 0 0;
+}
+
+/* ─────────────────────────────
+   NOTE HEADER
+───────────────────────────── */
+.note-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.note-header h3 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+  flex: 1;
+  word-break: break-word;
+}
+
+.note-header svg {
+  position: fixed;
+  top: 1.5rem;
+  left: 1rem;
+}
+
+.checklist-display {
+  list-style: none;
+}
+
+/* ─────────────────────────────
+   NOTE CONTENT & TIMESTAMP
+───────────────────────────── */
+.note-content {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.note-timestamp {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+  border-top: 1px solid rgba(200, 136, 58, 0.30);
+  padding-top: 0.6rem;
+}
+
+.note-timestamp span {
+  color: var(--amber);
+  font-style: italic;
+}
+
+/* ─────────────────────────────
+   CARD BUTTONS
+───────────────────────────── */
+.btn-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.btn-div button {
+  width: 120px;
+  padding: 0.25rem 0.6rem;
+  margin: 5px 0;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s;
+  box-shadow: none;
+  animation: none;
+  position: relative;
+  overflow: visible;
+}
+
+.btn-div button::after {
+  display: none;
+}
+
+/* Pin button */
+.btn-div button:first-child {
+  color: var(--warm-white);
+  background: linear-gradient(135deg, var(--amber) 0%, var(--rust) 100%);
+  border-color: rgba(200, 136, 58, 0.25);
+}
+
+.btn-div button:first-child:not(:disabled):hover {
+  background: linear-gradient(100deg, var(--amber) 0%, var(--rust) 20%);
+  border-color: var(--amber);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Delete button */
+.delete-btn {
+  color: #b94040 !important;
+  background: rgba(185, 60, 60, 0.3) !important;
+  border-color: rgba(185, 64, 64, 0.22) !important;
+}
+
+.delete-btn:not(:disabled):hover {
+  background: rgba(185, 64, 64, 0.16) !important;
+  border-color: #b94040 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+button:disabled {
+    color: var(--amber-pale) !important;
+    background-color: var(--ink-muted) !important;
+    cursor: not-allowed !important;
+    transform: none;
+    box-shadow: none;
+}
