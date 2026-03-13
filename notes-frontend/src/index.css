@@ -1,11 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─────────────────────────────
+   LIGHT THEME (default)
+───────────────────────────── */
+:root {
+  --cream: #faf6ef;
+  --warm-white: #fff9f2;
+  --ink: #1c1a16;
+  --ink-muted: #6b6355;
+  --ink-faint: #a09585;
+  --amber: #c8883a;
+  --amber-light: #f0d4a8;
+  --amber-pale: #faecd6;
+  --rust: #a0522d;
+  --paper: #f5efe4;
+  --pinned-bg: #f8eed8;
+  --shadow-warm: rgba(100, 70, 30, 0.12);
+
+  /* Extras used by multiple files */
+  --focus-bg: #fff;
+  --error-bg: #fff0ea;
+  --overlay-bg: rgba(250, 246, 239, 0.72);
+  --nav-bg: rgba(255, 249, 242, 0.85);
+  --nav-border: rgba(200, 136, 58, 0.15);
+  --nav-shadow: rgba(100, 70, 30, 0.07);
+  --input-border: rgba(200, 136, 58, 0.20);
+  --focus-ring: rgba(200, 136, 58, 0.12);
+  --separator: rgba(200, 136, 58, 0.30);
+  --delete-color: #b94040;
+  --delete-bg: rgba(185, 60, 60, 0.3);
+  --delete-border: rgba(185, 64, 64, 0.22);
+  --delete-hover-bg: rgba(185, 64, 64, 0.16);
+
+  /* Gradients / decorative blob opacities */
+  --blob-amber: rgba(200, 136, 58, 0.10);
+  --blob-rust: rgba(160, 82, 45, 0.08);
+  --bg-grad-amber: rgba(200, 136, 58, 0.18);
+  --bg-grad-rust: rgba(160, 82, 45, 0.14);
+  --bg-pattern-opacity: 0.08;
+  --noise-opacity: 0.025;
+
+  color-scheme: light;
+}
+
+/* ─────────────────────────────
+   DARK THEME
+───────────────────────────── */
+[data-theme="dark"] {
+  --cream: #1a1714;
+  --warm-white: #242019;
+  --ink: #f0e8dc;
+  --ink-muted: #a89c8e;
+  --ink-faint: #7a7064;
+  --amber: #d4983f;
+  --amber-light: #5c4a2e;
+  --amber-pale: #3a3024;
+  --rust: #c0693a;
+  --paper: #1e1b16;
+  --pinned-bg: #2a2418;
+  --shadow-warm: rgba(0, 0, 0, 0.35);
+
+  --focus-bg: #2a2620;
+  --error-bg: #3a2218;
+  --overlay-bg: rgba(20, 18, 14, 0.82);
+  --nav-bg: rgba(26, 23, 20, 0.90);
+  --nav-border: rgba(212, 152, 63, 0.18);
+  --nav-shadow: rgba(0, 0, 0, 0.25);
+  --input-border: rgba(212, 152, 63, 0.22);
+  --focus-ring: rgba(212, 152, 63, 0.18);
+  --separator: rgba(212, 152, 63, 0.25);
+  --delete-color: #e06060;
+  --delete-bg: rgba(224, 96, 96, 0.18);
+  --delete-border: rgba(224, 96, 96, 0.22);
+  --delete-hover-bg: rgba(224, 96, 96, 0.28);
+
+  --blob-amber: rgba(212, 152, 63, 0.06);
+  --blob-rust: rgba(192, 105, 58, 0.05);
+  --bg-grad-amber: rgba(212, 152, 63, 0.08);
+  --bg-grad-rust: rgba(192, 105, 58, 0.06);
+  --bg-pattern-opacity: 0.03;
+  --noise-opacity: 0.015;
+
+  color-scheme: dark;
+}
+
+/* ─────────────────────────────
+   DARK THEME — CHECKBOX OVERRIDES
+───────────────────────────── */
+[data-theme="dark"] .checklist-toggle input[type="checkbox"]:checked {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+[data-theme="dark"] .checklist-toggle input[type="checkbox"]:checked::after {
+  border-color: #1a1714;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─────────────────────────────
+   CUSTOM CURSORS
+───────────────────────────── */
 * {
   cursor: url('/cursor2.svg') 4 4, auto !important;
 }
 
-button, a, [onClick], input, textarea, .checklist-toggle, .checklist-toggle>span, .checklist-toggle>input, .items-preview li span,.items-preview li span s, .note-form>button:last-child, .model-close-btn, .notes-cards, .btn-div button, .notes-nav>button, .clear-search, .items-preview li .clickable {
+button, a, [onClick], input, textarea, .checklist-toggle, .checklist-toggle>span, .checklist-toggle>input, .items-preview li span,.items-preview li span s, .note-form>button:last-child, .model-close-btn, .notes-cards, .btn-div button, .notes-nav>button, .clear-search, .items-preview li .clickable, .theme-toggle {
   cursor: url('/cursor-pointer.svg') 4 4, pointer !important;
 }
 
 button:disabled, .modal-overlay, .loader-overlay, .loader-card {
   cursor: url('/cursor-na.svg') 4 4, not-allowed !important;
+}
+
+/* ─────────────────────────────
+   DARK THEME CURSORS
+───────────────────────────── */
+[data-theme="dark"] * {
+  cursor: url('/cursor2-white.svg') 4 4, auto !important;
+}
+
+[data-theme="dark"] button,
+[data-theme="dark"] a,
+[data-theme="dark"] [onClick],
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] .checklist-toggle,
+[data-theme="dark"] .checklist-toggle>span,
+[data-theme="dark"] .checklist-toggle>input,
+[data-theme="dark"] .items-preview li span,
+[data-theme="dark"] .items-preview li span s,
+[data-theme="dark"] .note-form>button:last-child,
+[data-theme="dark"] .model-close-btn,
+[data-theme="dark"] .notes-cards,
+[data-theme="dark"] .btn-div button,
+[data-theme="dark"] .notes-nav>button,
+[data-theme="dark"] .clear-search,
+[data-theme="dark"] .items-preview li .clickable,
+[data-theme="dark"] .theme-toggle {
+  cursor: url('/cursor-pointer-white.svg') 4 4, pointer !important;
+}
+
+[data-theme="dark"] button:disabled,
+[data-theme="dark"] .modal-overlay,
+[data-theme="dark"] .loader-overlay,
+[data-theme="dark"] .loader-card {
+  cursor: url('/cursor-na-white.svg') 4 4, not-allowed !important;
 }

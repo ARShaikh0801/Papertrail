@@ -4,12 +4,12 @@ import '../styles/ChecklistBuilder.css'
 const UncheckedIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 25 23">
         <path d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z"
-            fill="none" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" transform="translate(2 9)" />
+            fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" transform="translate(2 9)" />
     </svg>
 );
 
 const CheckedIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="20px" height="20px" viewBox="3 0 35 22">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="20px" height="20px" viewBox="3 0 35 22">
         <defs><style>{`.cls-1{fill:none}`}</style></defs>
         <path d="M26,4H6A2,2,0,0,0,4,6V26a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V6A2,2,0,0,0,26,4ZM14,21.5,9,16.5427,10.5908,15,14,18.3456,21.4087,11l1.5918,1.5772Z" />
         <path className="cls-1" d="M14,21.5,9,16.5427,10.5908,15,14,18.3456,21.4087,11l1.5918,1.5772Z" />

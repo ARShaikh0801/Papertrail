@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(250, 246, 239, 0.72);
+  background: var(--overlay-bg);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   animation: overlayFadeIn 0.25s ease both;
@@ -29,13 +29,8 @@
   align-items: center;
   gap: 1.2rem;
   padding: 2.8rem 3.2rem;
-  /* background: #fff9f2; */
   background: none;
   border-radius: 3px;
-  /* box-shadow:
-    0 2px 8px rgba(100, 70, 30, 0.10),
-    0 16px 48px rgba(100, 70, 30, 0.14),
-    0 0 0 1px rgba(200, 136, 58, 0.13); */
   animation: cardPop 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
   cursor: url('/cursor-na.svg') 4 4, not-allowed;
 }
@@ -85,9 +80,7 @@
   width: 76px;
   height: 76px;
   border-width: 3px;
-  /* border-top-color: #c8883a;
-  border-bottom-color: #c8883a; */
-  border-color: #c8883a;
+  border-color: var(--amber);
   animation: spinX-fwd 1.6s linear infinite;
   opacity: 0.95;
 }
@@ -97,9 +90,7 @@
   width: 58px;
   height: 58px;
   border-width: 2.5px;
-  /* border-top-color: #a0522d;
-  border-bottom-color: #a0522d; */
-  border-color: #a0522d;
+  border-color: var(--rust);
   animation: spinY-fwd 1.3s linear infinite;
   opacity: 0.85;
 }
@@ -109,9 +100,7 @@
   width: 40px;
   height: 40px;
   border-width: 2px;
-  /* border-top-color: #c8883a;
-  border-bottom-color: #c8883a; */
-  border-color: #c8883a;
+  border-color: var(--amber);
   animation: spinZ-fwd 1.0s linear infinite;
   animation-delay: -0.3s;
   opacity: 0.75;
@@ -122,9 +111,7 @@
   width: 22px;
   height: 22px;
   border-width: 2px;
-  /* border-top-color: #a0522d;
-  border-bottom-color: #a0522d; */
-  border-color: #a0522d;
+  border-color: var(--rust);
   animation: spinX-bwd 0.8s linear infinite;
   opacity: 0.65;
 }
@@ -156,7 +143,7 @@
   font-family: 'Lora', Georgia, serif;
   font-style: italic;
   font-size: 1rem;
-  color: #6b6355;
+  color: var(--ink-muted);
   letter-spacing: 0.01em;
   text-align: center;
   min-width: 200px;
@@ -186,7 +173,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #c8883a;
+  background: var(--amber);
   animation: dotPulse 1.4s ease-in-out infinite;
 }
 

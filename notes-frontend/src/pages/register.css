@@ -1,28 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --cream: #faf6ef;
-  --warm-white: #fff9f2;
-  --ink: #1c1a16;
-  --ink-muted: #6b6355;
-  --amber: #c8883a;
-  --amber-light: #f0d4a8;
-  --amber-pale: #faecd6;
-  --rust: #a0522d;
-  --paper: #f5efe4;
-  --shadow-warm: rgba(100, 70, 30, 0.12);
-}
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background-color: var(--cream);
-}
+/* register.css uses centralized variables from index.css */
 
 /* ───── Background ───── */
 .register-bg {
@@ -32,13 +8,14 @@ body {
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(ellipse 70% 60% at 80% 15%, rgba(200, 136, 58, 0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 70% at 15% 85%, rgba(160, 82, 45, 0.14) 0%, transparent 60%),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8883a' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(ellipse 70% 60% at 80% 15%, var(--bg-grad-amber) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 70% at 15% 85%, var(--bg-grad-rust) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8883a' fill-opacity='0.10'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
     var(--cream);
   padding: 2rem;
   position: relative;
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 /* Decorative blobs — mirrored positions vs login */
@@ -52,13 +29,13 @@ body {
 }
 .register-bg::before {
   width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(200, 136, 58, 0.10) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--blob-amber) 0%, transparent 70%);
   top: -120px; right: -120px;
   animation: float1 11s ease-in-out infinite;
 }
 .register-bg::after {
   width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(160, 82, 45, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--blob-rust) 0%, transparent 70%);
   bottom: -100px; left: -100px;
   animation: float2 14s ease-in-out infinite;
 }
@@ -84,11 +61,12 @@ body {
   box-shadow:
     0 1px 2px var(--shadow-warm),
     0 8px 32px rgba(100, 70, 30, 0.10),
-    0 0 0 1px rgba(200, 136, 58, 0.10);
+    0 0 0 1px var(--input-border);
 
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.3'/%3E%3C/svg%3E");
 
   animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: background-color 0.3s ease;
 }
 
 @keyframes slideUp {
@@ -140,7 +118,7 @@ body {
 
 /* ───── Error ───── */
 .error-line {
-  background: #fff0ea;
+  background: var(--error-bg);
   border-left: 3px solid var(--rust);
   color: var(--rust);
   font-size: 0.82rem;
@@ -193,23 +171,23 @@ body {
   font-weight: 400;
   color: var(--ink);
   background: var(--paper);
-  border: 1.5px solid rgba(200, 136, 58, 0.20);
+  border: 1.5px solid var(--input-border);
   border-radius: 4px;
   outline: none;
   transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 
 .input-group input::placeholder {
-  color: rgba(107, 99, 85, 0.45);
+  color: var(--ink-faint);
   font-style: italic;
   font-family: 'Lora', serif;
   font-size: 0.88rem;
 }
 
 .input-group input:focus {
-  background: #fff;
+  background: var(--focus-bg);
   border-color: var(--amber);
-  box-shadow: 0 0 0 3px rgba(200, 136, 58, 0.12);
+  box-shadow: 0 0 0 3px var(--focus-ring);
 }
 
 /* ───── Button ───── */

@@ -23,12 +23,13 @@
   max-width: 460px;
   position: relative;
   box-shadow:
-    0 2px 8px rgba(100, 70, 30, 0.12),
+    0 2px 8px var(--shadow-warm),
     0 20px 60px rgba(100, 70, 30, 0.22),
-    0 0 0 1px rgba(200, 136, 58, 0.12);
+    0 0 0 1px var(--input-border);
   animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
   cursor: url('/cursor2.svg') 4 4, default;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.30'/%3E%3C/svg%3E");
+  transition: background-color 0.3s ease;
 }
 
 /* Amber top accent on modal */
@@ -61,7 +62,7 @@
 
 .note-form input::placeholder,
 .note-form textarea::placeholder {
-  color: rgba(107, 99, 85, 0.45);
+  color: var(--ink-faint);
   font-style: italic;
   font-family: 'Lora', serif;
   font-size: 0.88rem;
@@ -69,9 +70,9 @@
 
 .note-form input:focus,
 .note-form textarea:focus {
-  background: #fff;
+  background: var(--focus-bg);
   border-color: var(--amber);
-  box-shadow: 0 0 0 3px rgba(200, 136, 58, 0.12);
+  box-shadow: 0 0 0 3px var(--focus-ring);
 }
 
 .note-form>button:last-child {
@@ -125,7 +126,7 @@
   font-weight: 400;
   color: var(--ink);
   background: var(--paper);
-  border: 1.5px solid rgba(200, 136, 58, 0.20);
+  border: 1.5px solid var(--input-border);
   border-radius: 4px;
   outline: none;
   resize: none;
@@ -205,7 +206,7 @@
    ERROR LINE
 ───────────────────────────── */
 .error-line {
-  background: #fff0ea;
+  background: var(--error-bg);
   border-left: 3px solid var(--rust);
   color: var(--rust);
   font-size: 0.82rem;

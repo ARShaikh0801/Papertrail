@@ -1,0 +1,72 @@
+/* ─────────────────────────────
+   THEME TOGGLE BUTTON
+───────────────────────────── */
+.theme-toggle {
+  position: relative;
+  width: 38px !important;
+  height: 38px;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1.5px solid var(--separator) !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: url('/cursor-pointer.svg') 4 4, pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s !important;
+  box-shadow: none !important;
+  animation: none !important;
+  overflow: hidden !important;
+  flex-shrink: 0;
+}
+
+.theme-toggle::after {
+  display: none !important;
+}
+
+.theme-toggle:not(:disabled):hover {
+  border-color: var(--amber) !important;
+  background: rgba(200, 136, 58, 0.08) !important;
+  transform: rotate(15deg) !important;
+  box-shadow: none !important;
+}
+
+/* ─────────────────────────────
+   ICONS
+───────────────────────────── */
+.theme-icon {
+  position: absolute;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--ink-muted);
+}
+
+.theme-icon.active {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.sun-icon:not(.active) {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+.moon-icon:not(.active) {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+/* ─────────────────────────────
+   RESPONSIVE — MOBILE
+───────────────────────────── */
+@media (max-width: 480px) {
+  .theme-toggle {
+    width: 32px !important;
+    height: 32px;
+  }
+
+  .theme-icon {
+    width: 15px;
+    height: 15px;
+  }
+}
