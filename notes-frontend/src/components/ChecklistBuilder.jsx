@@ -60,17 +60,17 @@ function ChecklistBuilder({ items, onAdd, onRemove, onToggle, bottomRef }) {
             <ul className="items-preview" ref={listRef}>
                 {items.map((item, i) => (
                     <React.Fragment key={i}>
-                        <li className={item.checked ? 'checked-item' : ''}>
-                            <span
-                                className={`check-dot ${onToggle ? 'clickable' : ''}`}
-                                onClick={() => onToggle?.(i)}
-                            >
+                        <li
+                            className={item.checked ? 'checked-item' : ''}
+                            onClick={() => onToggle?.(i)}
+                        >
+                            <span className={`check-dot ${onToggle ? 'clickable' : ''}`}>
                                 {item.checked ? <CheckedIcon /> : <UncheckedIcon />}
                             </span>
-                            <span onClick={() => onToggle?.(i)}>
+                            <span>
                                 {item.checked ? <s>{item.text}</s> : item.text}
                             </span>
-                            <button className="remove-item-btn" onClick={() => onRemove(i)}>
+                            <button className="remove-item-btn" onClick={(e) => { e.stopPropagation(); onRemove(i); }}>
                                 &times;
                             </button>
                         </li>

@@ -31,8 +31,8 @@ body {
 
 button:disabled {
     color: var(--amber-pale) !important;
-    background-color: var(--ink-muted) !important;
-    cursor: not-allowed !important;
+    background: var(--ink-muted) !important;
+    cursor: url('/cursor-na.svg') 4 4, not-allowed !important;
 }
 
 /* ─────────────────────────────
@@ -89,7 +89,7 @@ button:disabled {
   height: 62px;
   border-radius: 50%;
   border: none;
-  cursor: pointer;
+  cursor: url('/cursor-pointer.svg') 4 4, pointer;
 
   font-size: 2rem;
   font-weight: 300;
@@ -190,5 +190,56 @@ button:disabled {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ─────────────────────────────
+   RESPONSIVE — TABLET
+───────────────────────────── */
+@media (max-width: 768px) {
+  .notes-grid {
+    padding: 1.2rem 1rem;
+    gap: 1.2rem;
+  }
+
+  .notes-container > p {
+    padding: 4rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .add-note-model-btn {
+    width: 54px;
+    height: 54px;
+    font-size: 1.7rem;
+    bottom: 2rem;
+    right: 1.5rem;
+  }
+}
+
+/* ─────────────────────────────
+   RESPONSIVE — MOBILE
+───────────────────────────── */
+@media (max-width: 480px) {
+  .notes-grid {
+    grid-template-columns: 1fr;
+    padding: 0.8rem 0.6rem;
+    gap: 1rem;
+  }
+
+  .notes-container > p {
+    padding: 3rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  .add-note-model-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    bottom: 1.5rem;
+    right: 1.2rem;
+  }
+
+  .notes-container {
+    padding-bottom: 5rem;
   }
 }

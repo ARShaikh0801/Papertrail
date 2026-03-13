@@ -3,23 +3,22 @@ import '../styles/LoginLoader.css';
 
 
 
-function LoginLoader({ messages=null }) {
+function LoginLoader({ messages }) {
     const [msgIndex, setMsgIndex] = useState(0);
     const [fading, setFading] = useState(false);
 
-    if (messages)
-    {
-        useEffect(() => {
-            const interval = setInterval(() => {
-                setFading(true);
-                setTimeout(() => {
-                    setMsgIndex(i => (i + 1) % messages.length);
-                    setFading(false);
-                }, 350);
-            }, 1800);
-            return () => clearInterval(interval);
-        }, [messages]);
-    }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setFading(true);
+            setTimeout(() => {
+                setMsgIndex(i => (i + 1) % messages.length);
+                setFading(false);
+            }, 350);
+        }, 1800);
+        return () => clearInterval(interval);
+    }, [messages]);
+
 
     return (
         <div className="loader-overlay">
@@ -36,21 +35,17 @@ function LoginLoader({ messages=null }) {
                 </div>
 
                 {/* Cycling text */}
-                {messages ? 
-                    <p className={`loader-msg ${fading ? 'fade-out' : 'fade-in'}`}>
-                        {messages[msgIndex]}
-                    </p> :
-                    ""
-                }
-                
+
+                <p className={`loader-msg ${fading ? 'fade-out' : 'fade-in'}`}>
+                    {messages[msgIndex]}
+                </p>
+
 
                 {/* Dot trail */}
-                {messages ?
-                    <div className="loader-dots">
-                        <span /><span /><span />
-                    </div> :
-                    ""
-                }
+
+                <div className="loader-dots">
+                    <span /><span /><span />
+                </div>
             </div>
         </div>
     );

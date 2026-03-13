@@ -9,6 +9,19 @@
   perspective: 80px;
 }
 
+/* ── Spinner inside buttons — keep same line, no height change ── */
+button .sq-spinner {
+  vertical-align: text-bottom;
+}
+
+button:has(.sq-spinner) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+  white-space: nowrap;
+}
+
 /* ── Shared ring base ── */
 .sq-ring {
   position: absolute;
