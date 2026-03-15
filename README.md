@@ -146,7 +146,7 @@ The app will be available at **http://localhost:5173**
 
 ##Screenshot
 
-![Screenshot Description](./localhost_5173_register.png)
+
 
 ---
 
