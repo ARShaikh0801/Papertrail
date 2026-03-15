@@ -147,28 +147,28 @@ The app will be available at **http://localhost:5173**
 ## Screenshot
 
 # Register Form
-![Register](<Project Screenshots/register.png>)
+![Register](<Project Screenshots/register2.png>)
 
 # Login Form
-![Login](<Project Screenshots/login.png>)
+![Login](<Project Screenshots/login2.png>)
 
 # First Page Look
-![Home](<Project Screenshots/login2.png>)
+![Home](<Project Screenshots/login22.png>)
 
 # Quick Note Add Form
-![QuickForm](<Project Screenshots/quickform.png>)
+![QuickForm](<Project Screenshots/quickform2.png>)
 
 # Add Note Form
-![AddNoteForm](<Project Screenshots/addnoteform.png>)
+![AddNoteForm](<Project Screenshots/addnoteform2.png>)
 
 # Edit Note Form
-![EditNoteForm](<Project Screenshots/editnoteform.png>)
+![EditNoteForm](<Project Screenshots/editnoteform2.png>)
 
 # Note Pinning Feature
-![NotePinning](<Project Screenshots/notepinning.png>)
+![NotePinning](<Project Screenshots/notepinning2.png>)
 
 # Dark Theme
-![DarkTheme](<Project Screenshots/darktheme.png>)
+![DarkTheme](<Project Screenshots/darktheme2.png>)
 
 ---
 
